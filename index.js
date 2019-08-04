@@ -4,8 +4,11 @@ const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
 searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+
     // Get search term
     const searchTerm = searchInput.value;
+    searchInput.value = '';
     // Get sort
     const sortBy = document.querySelector('input[name="sortby"]:checked').value;
     // Get limit
@@ -14,9 +17,8 @@ searchForm.addEventListener('submit', e => {
     // Check input
     if (searchTerm === '') {
         showMessage('Please add a search term', 'alert-danger');
+        return;
     }
-
-    searchInput.value = '';
 
     // Search Reddit
     reddit.search(searchTerm, searchLimit, sortBy)
@@ -47,8 +49,6 @@ searchForm.addEventListener('submit', e => {
             output += '</div>';
             document.getElementById('results').innerHTML = output;
         });
-
-    e.preventDefault();
 });
 
 function showMessage(message, className) {
