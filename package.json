@@ -1,0 +1,18 @@
+{
+  "name": "finddit",
+  "version": "1.0.0",
+  "description": "Reddit search app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rm -rf dist && parcel index.html",
+    "build": "rm -rf dist && parcel build index.html",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Chua Ping Chan",
+  "license": "MIT",
+  "homepage": "https://github.com/ChuaPingChan/finddit#readme",
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.12.3"
+  }
+}
